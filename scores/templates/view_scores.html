@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <link href="/static/css/style.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+    <meta charset="UTF-8" />
+    <title>{{ student.name }} の得点</title>
+  </head>
+  <body>
+    <h1 class="main-header">{{ student.name }} の得点</h1>
+    <ul>
+      {% for score in scores %}
+        <li>
+          {{ score.subject }}: {{ score.score }}点
+          <a href="{% url 'delete_score' score.id %}" onclick="return confirm('本当に削除しますか？')">削除</a> <!-- 削除リンク -->
+        </li>
+      {% endfor %}
+    </ul>
+    <br />
+    <a href="{% url 'index' %}">学生一覧に戻る</a>
+  </body>
+</html>

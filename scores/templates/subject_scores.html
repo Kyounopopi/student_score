@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <link href="/static/css/style.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+    <meta charset="UTF-8" />
+    <title>科目ごとの得点</title>
+  </head>
+  <body>
+    <h1 class="main-header">科目ごとの平均得点</h1>
+    <ul style="text-align: center;">
+      {% for subject, avg_score in subject_scores.items %}
+        <li>{{ subject }}: {{ avg_score }}点</li>
+      {% endfor %}
+    </ul>
+    <br>
+    <a style="text-align: center;" href="{% url 'index' %}">学生一覧に戻る</a>
+  </body>
+</html>

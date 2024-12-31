@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+    <link href="/static/css/style.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+        <meta charset="UTF-8">
+        <title>学生管理</title>
+    </head>
+    <body>
+        <h1 class="main-header">学生一覧</h1>
+        <div style="text-align: center;">
+            <a href="{% url 'register' %}">新しい学生を登録</a> |
+            <a href="{% url 'subject_scores' %}">科目ごとの平均得点</a>
+        </div>
+        <ul>
+            {% for student in students %}
+                <li style="float: right; margin-right: 450px; margin-top: 10px;">
+                    {{ student.name }}
+                    <a href="{% url 'view_scores' student.id %}">得点を見る</a> |
+                    <a href="{% url 'add_score' student.id %}">得点を追加</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

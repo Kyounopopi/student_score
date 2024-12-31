@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <link href="/static/css/style.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="../static/assets/favicon.ico" />
+    <meta charset="UTF-8" />
+    <title>学生登録</title>
+  </head>
+  <body>
+    <h1 class="main-header">学生登録</h1>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">登録</button>
+    </form>
+    <br>
+    <a href="{% url 'index' %}">戻る</a>
+  </body>
+</html>
